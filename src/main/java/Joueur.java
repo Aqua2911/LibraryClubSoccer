@@ -1,20 +1,48 @@
 //import Personne.java;
 
-public class Joueur<string> {
+import java.util.List;
+
+public class Joueur extends Personne {
     /**
      *
      *
      */
-public float taille;
-public float poids;
-public string villeNaissance;
-    // Definition de la methode
-    Object type (){
-        // print statement
-        //System.out.println("Base Constructor Called");
-        Object type = null;
-        return type;
+    private float taille;
+    private float poids;
+    private String villeNaissance;
 
+    private Club club;
+    private List<Parcours> parcours;
+
+    public float getTaille() {
+        return taille;
     }
 
+    public void setTaille(float taille) {
+        this.taille = taille;
+    }
+
+    public float getPoids() {
+        return poids;
+    }
+
+    public void setPoids(float poids) {
+        this.poids = poids;
+    }
+
+    public String getVilleNaissance() {
+        return villeNaissance;
+    }
+
+    public void setVilleNaissance(String villeNaissance) {
+        this.villeNaissance = villeNaissance;
+    }
+
+    public Club getClub() {
+        return club;
+    }
+
+    public void setClub(Club club) {
+        this.club = club;
+    }
 }

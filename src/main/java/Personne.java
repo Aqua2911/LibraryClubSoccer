@@ -1,23 +1,25 @@
-abstract class Personne<string> {
+abstract class Personne{
     /**
      *
      */
     // Les attributs
-    public string nom;
-    public string prenom;
-    // Definition de la methode
-   Object type (){
-        // print statement
-       //System.out.println("Base Constructor Called");
-       Object type = null;
-       return type;
+    private String nom;
+    private String prenom;
 
+    public String getNom() {
+        return nom;
     }
 
-}
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
-//// une instance personne
-//Personne personne = new personne();
-//// initialisation des attributs
-//personne.prenom =
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+}
 

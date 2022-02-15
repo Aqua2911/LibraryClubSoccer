@@ -4,7 +4,11 @@ public class Palmares {
 
     private String titre;
 
+
+
     private Date dateObtention;
+
+    private Club club;
 
     /**
      *
@@ -34,5 +38,11 @@ public class Palmares {
         this.dateObtention = dateObtention;
     }
 
+    public Club getClub() {
+        return club;
+    }
 
+    public void setClub(Club club) {
+        this.club = club;
+    }
 }

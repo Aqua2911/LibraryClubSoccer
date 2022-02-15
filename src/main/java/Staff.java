@@ -1,15 +1,34 @@
-public class Staff<string> {
+public class Staff extends Personne {
     /**
      *
      *
      */
-    public float age;
-    public string role;
-    Object type (){
-        // print statement
-        //System.out.println("Base Constructor Called");
-        Object type = null;
-        return type;
+    private float age;
+    private String role;
+
+    private Club club;
+
+    public float getAge() {
+        return age;
     }
 
+    public void setAge(float age) {
+        this.age = age;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public Club getClub() {
+        return club;
+    }
+
+    public void setClub(Club club) {
+        this.club = club;
+    }
 }

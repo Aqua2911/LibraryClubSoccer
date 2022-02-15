@@ -1,15 +1,31 @@
-public class Entraineur<string> {
+import java.util.List;
+
+public class Entraineur extends Personne{
     /**
      *
      *
      */
-    public string lieuGrade;
-    // Definition de la methode
-    Object type (){
-        // print statement
-        //System.out.println("Base Constructor Called");
-        Object type = null;
-        return type;
+    private String lieuGrade;
+
+    private Stade stade;
+
+    private List<TitreGagne> titresGagnes;
+
+    //Getters
+    public String getLieuGrade() {
+        return lieuGrade;
     }
 
+    public Stade getStade() {
+        return stade;
+    }
+
+    //Setters
+    public void setLieuGrade(String lieuGrade) {
+        this.lieuGrade = lieuGrade;
+    }
+
+    public void setStade(Stade stade) {
+        this.stade = stade;
+    }
 }
