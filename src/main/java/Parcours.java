@@ -1,40 +1,15 @@
-import java.util.Date;
-
-public class Parcours {
-
-    private String nomClub;
-
-    private Date datePassage;
-
+public class Parcours<string, date> {
     /**
      *
      *
      */
-    public String getNomClub() {
-        return nomClub;
+    public string nomClub;
+    public date datePassage;
+    Object type (){
+        // print statement
+        //System.out.println("Base Constructor Called");
+        Object type = null;
+        return type;
     }
 
-    /**
-     *
-     *
-     */
-    public void setNomClub(String nomClub) {
-        this.nomClub = nomClub;
-    }
-
-    /**
-     *
-     *
-     */
-    public Date getDatePassage() {
-        return datePassage;
-    }
-
-    /**
-     *
-     *
-     */
-    public void setDatePassage(Date datePassage) {
-        this.datePassage = datePassage;
-    }
 }
