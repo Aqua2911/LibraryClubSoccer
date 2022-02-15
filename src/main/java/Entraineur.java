@@ -9,6 +9,14 @@ public class Entraineur extends Personne{
 
     private Stade stade;
 
+    public List<TitreGagne> getTitresGagnes() {
+        return titresGagnes;
+    }
+
+    public void setTitresGagnes(List<TitreGagne> titresGagnes) {
+        this.titresGagnes = titresGagnes;
+    }
+
     private List<TitreGagne> titresGagnes;
 
     //Getters

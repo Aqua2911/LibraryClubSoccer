@@ -7,11 +7,15 @@ public class Club {
      *
      */
     //Attributs
-    public String histoire;
-    public String couleur;
-    public Date creationDate;
-    public String ville;
-    public String adresse;
+    private String nom;
+
+
+
+    private String histoire;
+    private String couleur;
+    private Date creationDate;
+    private String ville;
+    private String adresse;
 
     private Stade stade;
 
@@ -60,5 +64,37 @@ public class Club {
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+    }
+
+    public List<Palmares> getPalmares() {
+        return palmares;
+    }
+
+    public void setPalmares(List<Palmares> palmares) {
+        this.palmares = palmares;
+    }
+
+    public Stade getStade() {
+        return stade;
+    }
+
+    public void setStade(Stade stade) {
+        this.stade = stade;
+    }
+
+    public List<Joueur> getJoueurs() {
+        return joueurs;
+    }
+
+    public void setJoueurs(List<Joueur> joueurs) {
+        this.joueurs = joueurs;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 }
