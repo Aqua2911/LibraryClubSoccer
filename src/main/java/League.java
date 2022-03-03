@@ -1,11 +1,9 @@
-import jdk.jshell.spi.ExecutionControl;
-
 import java.util.List;
 
-public class Ligue {
+public class League {
 
     private List<Club> clubs;
-    private List<Entraineur> entraineurs;
+    private List<Coach> coaches;
 
 
     //Méthodes sur List<Club>
@@ -17,8 +15,8 @@ public class Ligue {
         return null;
     }
 
-    public List<Joueur> getJoueursByClubName(String clubName){
-        return getClubByName(clubName).getJoueurs();
+    public List<Player> getPlayersByClubName(String clubName){
+        return getClubByName(clubName).getPlayers();
     }
 
     //retourne le club de la ligue avec le plus de titres
@@ -36,25 +34,34 @@ public class Ligue {
         return mostTitledClub;
     }
 
-    public void AddJoueurToClub(){
-
+    public void AddPlayerToClub(Player player, String clubName){
+        getClubByName(clubName).getPlayers().add(player);
     }
+
     //Méthodes sur List<Joueur>
-    public List<Parcours> getParcoursByJoueurName(String joueurName){
+    public List<Career> getCareerByPlayerName(String playerName){
+        for (Club club:clubs) {
+            for(Player player :club.getPlayers()){
+                if(player.getLastName().equals(playerName))
+                {
+                    return player.getCareers();
+                }
+            }
+        }
         return null;
     }
 
     //Méthodes sur List<Palmares>
 
     //Méthode sur List<Entraineur>
-    public Entraineur MostTitledEntrainneur(){
-        Entraineur mostTitledEntraineur = entraineurs.get(0);
-        int mostTitledEntraineurSize = mostTitledEntraineur.getTitresGagnes().size();
+    public Coach MostTitledEntrainneur(){
+        Coach mostTitledEntraineur = coaches.get(0);
+        int mostTitledEntraineurSize = mostTitledEntraineur.getTitlesWon().size();
         int size;
-        for (Entraineur entraineur:entraineurs) {
-            size = entraineur.getTitresGagnes().size();
+        for (Coach coach: coaches) {
+            size = coach.getTitlesWon().size();
             if(size > mostTitledEntraineurSize){
-                mostTitledEntraineur = entraineur;
+                mostTitledEntraineur = coach;
                 mostTitledEntraineurSize = size;
             }
         }
@@ -62,20 +69,19 @@ public class Ligue {
     }
 
 
-    //Méthodes sur List<Joueur> ET List<Club>
-    public void TransactJoueurClub(String joueurName, String clubName){
+    //Méthodes sur List<Player> ET List<Club>
+    public void TransactPlayerClub(String playerName, String clubName){
     }
 
     //Méthodes CUD
     public void CreateClub(){
+    }
+
+    public void CreateCoach(){
 
     }
 
-    public void CreateEntraineur(){
-
-    }
-
-    public void CreateJoueur(){
+    public void CreatePlayer(){
 
     }
 
@@ -83,11 +89,11 @@ public class Ligue {
 
     }
 
-    public void CreateParcours(){
+    public void CreateCareers(){
 
     }
 
-    public void CreateStade(){
+    public void CreateStadium(){
 
     }
 
@@ -95,7 +101,7 @@ public class Ligue {
 
     }
 
-    public void CreateTitreGagne(){
+    public void CreateTitleWon(){
 
     }
 
@@ -103,11 +109,11 @@ public class Ligue {
 
     }
 
-    public void DeleteEntraineur(){
+    public void DeleteCoach(){
 
     }
 
-    public void DeleteJoueur(){
+    public void DeletePlayer(){
 
     }
 
@@ -115,11 +121,11 @@ public class Ligue {
 
     }
 
-    public void DeleteParcours(){
+    public void DeleteCareers(){
 
     }
 
-    public void DeleteStade(){
+    public void DeleteStadium(){
 
     }
 
@@ -127,8 +133,7 @@ public class Ligue {
 
     }
 
-    public void DeleteTitreGagne(){
+    public void DeleteTitleWon(){
 
     }
-
 }

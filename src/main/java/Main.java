@@ -1,10 +1,10 @@
 
 public class Main {
     public static void main(String[] args) {
-        Ligue ligue = new Ligue();
+        League league = new League();
 
         //ligue.CreateClub(fvrwcs);
 
-        ligue.getClubs();
+        league.getClubs();
     }
 }

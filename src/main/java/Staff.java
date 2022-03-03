@@ -1,4 +1,4 @@
-public class Staff extends Personne {
+public class Staff extends Person {
     /**
      *
      *

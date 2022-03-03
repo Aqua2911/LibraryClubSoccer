@@ -7,94 +7,103 @@ public class Club {
      *
      */
     //Attributs
-    private String nom;
-
-
-
-    private String histoire;
-    private String couleur;
+    private String name;
+    private String history;
+    private String color;
     private Date creationDate;
-    private String ville;
-    private String adresse;
+    private String city;
+    private String address;
 
-    private Stade stade;
+    private Stadium stadium;
 
-    private List<Joueur> joueurs;
+    private List<Player> players;
     private List<Staff> staffs;
-    private List<Entraineur> entraineurs;
+    private List<Coach> coaches;
     private List<Palmares> palmares;
 
     //Getters
-    public String getHistoire() {
-        return histoire;
+    public String getName() {
+        return name;
     }
 
-    public String getCouleur() {
-        return couleur;
+    public String getHistory() {
+        return history;
+    }
+
+    public String getColor() {
+        return color;
     }
 
     public Date getCreationDate() {
         return creationDate;
     }
 
-    public String getVille() {
-        return ville;
+    public String getCity() {
+        return city;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String getAddress() {
+        return address;
     }
 
-    //Setters
-    public void setHistoire(String histoire) {
-        this.histoire = histoire;
+    public Stadium getStadium() {
+        return stadium;
     }
 
-    public void setCouleur(String couleur) {
-        this.couleur = couleur;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public List<Player> getPlayers() {
+        return players;
     }
 
     public List<Palmares> getPalmares() {
         return palmares;
     }
 
+    //Setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setHistory(String history) {
+        this.history = history;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setStadium(Stadium stadium) {
+        this.stadium = stadium;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
     public void setPalmares(List<Palmares> palmares) {
         this.palmares = palmares;
     }
 
-    public Stade getStade() {
-        return stade;
-    }
 
-    public void setStade(Stade stade) {
-        this.stade = stade;
-    }
 
-    public List<Joueur> getJoueurs() {
-        return joueurs;
-    }
 
-    public void setJoueurs(List<Joueur> joueurs) {
-        this.joueurs = joueurs;
-    }
 
-    public String getNom() {
-        return nom;
-    }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+
+
+
+
+
+
 }
