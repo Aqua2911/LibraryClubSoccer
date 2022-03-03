@@ -1,9 +1,19 @@
+package LeaguePackage;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class League {
 
     private List<Club> clubs;
     private List<Coach> coaches;
+
+    //Constructor
+    public League(){
+        clubs = new ArrayList<>();
+        coaches = new ArrayList<>();
+    }
 
 
     //Méthodes sur List<Club>
@@ -12,20 +22,25 @@ public class League {
     }
 
     public Club getClubByName(String clubName){
+        for (Club club:clubs) {
+            if(Objects.equals(club.name, clubName)){
+                return club;
+            }
+        }
         return null;
     }
 
     public List<Player> getPlayersByClubName(String clubName){
-        return getClubByName(clubName).getPlayers();
+        return getClubByName(clubName).players;
     }
 
     //retourne le club de la ligue avec le plus de titres
     public Club MostTitledClub(){
         Club mostTitledClub = clubs.get(0);
-        int mostTitledClubSize = mostTitledClub.getPalmares().size();
+        int mostTitledClubSize = mostTitledClub.palmares.size();
         int size;
         for (Club club:clubs) {
-            size = club.getPalmares().size();
+            size = club.palmares.size();
             if(size > mostTitledClubSize){
                 mostTitledClub = club;
                 mostTitledClubSize = size;
@@ -35,41 +50,40 @@ public class League {
     }
 
     public void AddPlayerToClub(Player player, String clubName){
-        getClubByName(clubName).getPlayers().add(player);
+        getClubByName(clubName).players.add(player);
     }
 
     //Méthodes sur List<Joueur>
     public List<Career> getCareerByPlayerName(String playerName){
         for (Club club:clubs) {
-            for(Player player :club.getPlayers()){
-                if(player.getLastName().equals(playerName))
+            for(Player player :club.players){
+                if(player.lastName.equals(playerName))
                 {
-                    return player.getCareers();
+                    return player.careers;
                 }
             }
         }
         return null;
     }
 
-    //Méthodes sur List<Palmares>
+    //Méthodes sur List<LeaguePackage.Palmares>
 
-    //Méthode sur List<Entraineur>
-    public Coach MostTitledEntrainneur(){
-        Coach mostTitledEntraineur = coaches.get(0);
-        int mostTitledEntraineurSize = mostTitledEntraineur.getTitlesWon().size();
+    //Méthode sur List<LeaguePackage.Coach>
+    public Coach MostTitledCoach(){
+        Coach mostTitledCoach = coaches.get(0);
+        int mostTitledCoachSize = mostTitledCoach.titlesWon.size();
         int size;
         for (Coach coach: coaches) {
-            size = coach.getTitlesWon().size();
-            if(size > mostTitledEntraineurSize){
-                mostTitledEntraineur = coach;
-                mostTitledEntraineurSize = size;
+            size = coach.titlesWon.size();
+            if(size > mostTitledCoachSize){
+                mostTitledCoach = coach;
+                mostTitledCoachSize = size;
             }
         }
-        return mostTitledEntraineur;
+        return mostTitledCoach;
     }
 
-
-    //Méthodes sur List<Player> ET List<Club>
+    //Méthodes sur List<LeaguePackage.Player> ET List<LeaguePackage.Club>
     public void TransactPlayerClub(String playerName, String clubName){
     }
 
