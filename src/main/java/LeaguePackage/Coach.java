@@ -9,14 +9,28 @@ class Coach extends Person {
      *
      */
     String gradePlace;
-    Stadium stadium;
+    boolean retired;
 
     List<TitleWon> titlesWon;
 
-    public Coach(String lastName, String firstName, String gradePlace, Stadium stadium) {
+    public Coach(String lastName, String firstName, String gradePlace) {
         super(lastName, firstName);
         this.gradePlace = gradePlace;
-        this.stadium = stadium;
+        this.retired = false;
         this.titlesWon = new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "{" + firstName + ' ' + lastName + '}';
+    }
+
+    public String toStringDetails() {
+        return "Coach{" +
+                "gradePlace='" + gradePlace + '\'' +
+                ", titlesWon=" + titlesWon +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                '}';
     }
 }

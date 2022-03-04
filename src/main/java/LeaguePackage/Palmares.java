@@ -4,14 +4,19 @@ import java.util.Date;
 
 class Palmares {
 
-    String titre;
-    Date dateObtention;
+    String title;
+    Date obtainmentDate;
 
-    Club club;
+    public Palmares(String title, Date obtainmentDate) {
+        this.title = title;
+        this.obtainmentDate = obtainmentDate;
+    }
 
-    public Palmares(String titre, Date dateObtention, Club club) {
-        this.titre = titre;
-        this.dateObtention = dateObtention;
-        this.club = club;
+    @Override
+    public String toString() {
+        return "Palmares{" +
+                "titre='" + title + '\'' +
+                ", dateObtention=" + obtainmentDate +
+                '}';
     }
 }

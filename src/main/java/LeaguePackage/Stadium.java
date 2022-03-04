@@ -8,12 +8,18 @@ class Stadium {
     int capacity;
     String groundType;
 
-    Club club;
-
-    public Stadium(String stadiumName, int capacity, String groundType, Club club) {
+    public Stadium(String stadiumName, int capacity, String groundType) {
         this.stadiumName = stadiumName;
         this.capacity = capacity;
         this.groundType = groundType;
-        this.club = club;
+    }
+
+    @Override
+    public String toString() {
+        return "Stadium{" +
+                "stadiumName='" + stadiumName + '\'' +
+                ", capacity=" + capacity +
+                ", groundType='" + groundType + '\'' +
+                '}';
     }
 }

@@ -13,17 +13,27 @@ class Player extends Person {
     float weight;
     String birthCity;
 
-    Club club;
-
     List<Career> careers;
 
-    public Player(String lastName, String firstName, boolean independent, float height, float weight, String birthCity, Club club) {
+    public Player(String lastName, String firstName, float height, float weight, String birthCity) {
         super(lastName, firstName);
-        this.independent = independent;
+        this.independent = true;
         this.height = height;
         this.weight = weight;
         this.birthCity = birthCity;
-        this.club = club;
         this.careers = new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", independent=" + independent +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", birthCity='" + birthCity + '\'' +
+                ", careers=" + careers +
+                '}';
     }
 }

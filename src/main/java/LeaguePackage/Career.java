@@ -8,13 +8,21 @@ class Career {
      *
      */
     String clubName;
-    Date passageDate;
+    Date passageDateStart;
+    Date passageDateEnd;
 
-    Player player;
-
-    public Career(String clubName, Date passageDate, Player player) {
+    public Career(String clubName, Date passageDateStart, Date passageDateEnd) {
         this.clubName = clubName;
-        this.passageDate = passageDate;
-        this.player = player;
+        this.passageDateStart = passageDateStart;
+        this.passageDateEnd = passageDateEnd;
+    }
+
+    @Override
+    public String toString() {
+        return "Career{" +
+                "clubName='" + clubName + '\'' +
+                ", passageDateStart=" + passageDateStart +
+                ", passageDateEnd=" + passageDateEnd +
+                '}';
     }
 }
