@@ -9,13 +9,15 @@ class Coach extends Person {
      *
      */
     String gradePlace;
+    float statsModifier;
     boolean retired;
 
     List<TitleWon> titlesWon;
 
-    public Coach(String lastName, String firstName, String gradePlace) {
+    public Coach(String lastName, String firstName, String gradePlace, float statsModifier) {
         super(lastName, firstName);
         this.gradePlace = gradePlace;
+        this.statsModifier = statsModifier;
         this.retired = false;
         this.titlesWon = new ArrayList<>();
     }

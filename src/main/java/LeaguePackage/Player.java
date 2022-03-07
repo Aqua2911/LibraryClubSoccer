@@ -12,15 +12,17 @@ class Player extends Person {
     float height;
     float weight;
     String birthCity;
+    float stats;
 
     List<Career> careers;
 
-    public Player(String lastName, String firstName, float height, float weight, String birthCity) {
+    public Player(String lastName, String firstName, float height, float weight, String birthCity, float stats) {
         super(lastName, firstName);
         this.independent = true;
         this.height = height;
         this.weight = weight;
         this.birthCity = birthCity;
+        this.stats = stats;
         this.careers = new ArrayList<>();
     }
 

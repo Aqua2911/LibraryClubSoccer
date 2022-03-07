@@ -1,9 +1,6 @@
 package LeaguePackage;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class League {
 
@@ -18,20 +15,24 @@ public class League {
         independentPlayers = new ArrayList<>();
     }
 
-    //Méthodes sur List<Club>
+    //Getter de la liste des clubs
     public List<Club> getClubs() {
         return clubs;
     }
 
+    //Tout les joueurs faisant partie d'un certain club
     //Enter "INDEPENDENT" for players not affiliated with a club
+    //IMPORTANT : aucune vérification que le club est non null. À MODIFIER
     public List<Player> getPlayersByClubName(String clubName){
         if(Objects.equals(clubName, "INDEPENDENT"))
         {
+            //retourne les joueurs indépendants
             return independentPlayers;
         }
         return getClubByName(clubName).players;
     }
 
+    //Retourne le club ayant un certain nom
     public Club getClubByName(String clubName){
         for (Club club:clubs) {
             if(Objects.equals(club.name, clubName)){
@@ -41,6 +42,7 @@ public class League {
         return null;
     }
 
+    //Retourne le Joueur ayant un certain nom
     public Player getPlayerByName(String firstName, String lastName){
         for (Club club:clubs) {
             for(Player player :club.players){
@@ -53,7 +55,7 @@ public class League {
         return null;
     }
 
-    //retourne le club de la ligue avec le plus de titres
+    //retourne le club avec le plus de titres
     public Club MostTitledClub(){
         Club mostTitledClub = clubs.get(0);
         int mostTitledClubSize = mostTitledClub.palmares.size();
@@ -68,12 +70,29 @@ public class League {
         return mostTitledClub;
     }
 
-    //Méthodes sur List<Joueur>
+    //Simule un match entre deux clubs
+    //IMPORTANT : aucune vérification que le club est non null. À MODIFIER
+    public Club Match(String clubNameHome, String clubNameVisitor){
+        Club home = getClubByName(clubNameHome);
+        Club visitor = getClubByName(clubNameVisitor);
+        Random rng = new Random();
+        float resultHome = rng.nextInt(5) * home.getStats() * 1.5f;
+        float resultVisitor = rng.nextInt(5) * visitor.getStats();
+        if(resultHome >= resultVisitor){
+            return home;
+        }
+        else{
+            return visitor;
+        }
+    }
+
+    //Retourne le parcours d'un certain joueur
+    //IMPORTANT : aucune vérification que le joueur est non null. À MODIFIER
     public List<Career> getCareerByPlayerName(String firstName, String lastName){
         return getPlayerByName(firstName, lastName).careers;
     }
 
-    //Méthode sur List<Coach>
+    //Retourne un certain coach
     public Coach getCoachByName(String firstName, String lastName){
         for(Coach coach :coaches){
             if(coach.firstName.equals(firstName) && coach.lastName.equals(lastName))
@@ -84,6 +103,7 @@ public class League {
         return null;
     }
 
+    //Retourne le coach avec le plus de titres
     public Coach MostTitledCoach(){
         Coach mostTitledCoach = coaches.get(0);
         int mostTitledCoachSize = mostTitledCoach.titlesWon.size();
@@ -98,7 +118,8 @@ public class League {
         return mostTitledCoach;
     }
 
-    //Méthodes sur List<Player> ET List<Club>
+    //Déplace un joueur entre deux clubs
+    //Si le club est null, déplace vers la liste des joueurs indépendants
     public void TransactPlayerClub(String playerFirstName, String playerLastName, String clubName){
         Player player = getPlayerByName(playerFirstName, playerLastName);
         Club club = getClubByName(clubName);
@@ -124,17 +145,17 @@ public class League {
         }
     }
 
-    //Méthodes CUD
+    //Méthodes De Création et de Suppression d'objets.
     public void CreateClub(String name, String history, String color, Date creationDate, String city, String address){
         clubs.add(new Club(name, history, color, creationDate, city, address));
     }
 
-    public void CreateCoach(String lastName, String firstName, String gradePlace){
-        coaches.add(new Coach(lastName, firstName, gradePlace));
+    public void CreateCoach(String lastName, String firstName, String gradePlace, float statsModifier){
+        coaches.add(new Coach(lastName, firstName, gradePlace, statsModifier));
     }
 
-    public void CreatePlayer(String lastName, String firstName, float height, float weight, String birthCity){
-        independentPlayers.add(new Player(lastName, firstName, height, weight, birthCity));
+    public void CreatePlayer(String lastName, String firstName, float height, float weight, String birthCity, float stats){
+        independentPlayers.add(new Player(lastName, firstName, height, weight, birthCity, stats));
     }
 
     public void CreatePalmaresByClubName(String titre, Date dateObtention, String clubName){
@@ -157,6 +178,7 @@ public class League {
         getCoachByName(firstName, lastName).titlesWon.add(new TitleWon(title, obtainmentDate));
     }
 
+    //Supprime un club, son staff et son palmares. Place les coaches en retraite (non supprimés) et les joueurs en indépendants
     public void DeleteClubByName(String clubName){
         Club clubToDelete = getClubByName(clubName);
         clubToDelete.staffs.clear();
@@ -170,6 +192,7 @@ public class League {
         clubs.remove(clubToDelete);
     }
 
+    //Supprime un coach. Cherche sa position (dans un club ou retraité)
     public void DeleteCoach(String firstName, String lastName){
         Coach coachToDelete = getCoachByName(firstName, lastName);
         for(Club club: clubs){
@@ -178,6 +201,7 @@ public class League {
         coaches.remove(coachToDelete);
     }
 
+    //Supprime un Joueur. Cherche dans un club ou indépendant
     public void DeletePlayer(String firstName, String lastName){
         Player playerToDelete = getPlayerByName(firstName, lastName);
         if(playerToDelete.independent){
