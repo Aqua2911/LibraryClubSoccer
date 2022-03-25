@@ -52,6 +52,12 @@ public class League {
                 }
             }
         }
+        for(Player player: independentPlayers){
+            if(player.firstName.equals(firstName) && player.lastName.equals(lastName))
+            {
+                return player;
+            }
+        }
         return null;
     }
 
