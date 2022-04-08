@@ -1,6 +1,6 @@
 package LeaguePackage;
 
-import io.codearte.jfairy.Fairy;
+import com.github.javafaker.Faker;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -79,12 +79,11 @@ class Club {
     }
 
     public static Club RandomGeneration(){
-        Fairy fairy = Fairy.create();
-        io.codearte.jfairy.producer.person.Person placeholder = fairy.person();
-        String city = placeholder.getAddress().getCity();
-        String name = city + "FC";
-        String address = placeholder.getAddress().getAddressLine1();
+        Faker faker = new Faker();
 
-        return new Club(name, "", "", new Date(), city, address);
+        String city = faker.address().city();
+        String name = city + "FC";
+
+        return new Club(name, faker.lorem().sentence(15), faker.color().name(), new Date(), city, faker.address().streetAddress());
     }
 }

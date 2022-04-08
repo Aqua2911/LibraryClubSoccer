@@ -1,13 +1,12 @@
 import LeaguePackage.League;
+import LeaguePackage.LeagueBuilder;
 
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        League league = new League();
-        league.CreateClub("name", "history", "color", new Date(), "city", "address");
-        league.CreateClub("name2", "history", "color", new Date(), "city", "address");
-        league.CreateCoach("Tremblay", "Mario", "Montréal", 1.2f);
+        LeagueBuilder leagueBuilder = new LeagueBuilder();
+        League league = leagueBuilder.buildXClubsYPlayers(10, 20);
         System.out.println(league);
     }
 }

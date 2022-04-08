@@ -1,16 +1,8 @@
 package LeaguePackage;
 
-import io.codearte.jfairy.Fairy;
-import io.codearte.jfairy.producer.person.Person;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Random;
 
 public class LeagueBuilder implements ILeagueBuilder {
-
-    Fairy fairy = Fairy.create();
 
     @Override
     public League buildXClubs(int nbClub) {
@@ -44,7 +36,29 @@ public class LeagueBuilder implements ILeagueBuilder {
     }
 
     @Override
-    public League buildXClubsRangeCoachRangePlayers(int nbClub, int minCoach, int maxCoach, int minPlayer, int maxPlayer) {
-        return null;
+    public League buildXClubsRangePlayersRangeCoach(int nbClub, int minPlayer, int maxPlayer, int minCoach, int maxCoach) {
+        League newLeague = new League();
+
+        Random rng = new Random();
+        int nbPlayersRng;
+        int nbCoachRng;
+
+        for(int i = 0; i < nbClub; i++){
+            Club newClub = Club.RandomGeneration();
+
+            nbPlayersRng = rng.nextInt(minPlayer, minPlayer);
+            for(int j = 0; j < nbPlayersRng; j++){
+                newClub.players.add(Player.RandomGeneration());
+            }
+
+            nbCoachRng = rng.nextInt(minCoach, maxCoach);
+            for(int k = 0; k < nbCoachRng; k++){
+                newClub.coaches.add(Coach.RandomGeneration());
+            }
+
+            newLeague.getClubs().add(newClub);
+        }
+
+        return newLeague;
     }
 }

@@ -1,6 +1,6 @@
 package LeaguePackage;
 
-import io.codearte.jfairy.Fairy;
+import com.github.javafaker.Faker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,10 +41,10 @@ class Coach extends Person {
 
     public static Coach RandomGeneration(){
         Random rng = new Random();
-        Fairy fairy = Fairy.create();
-        io.codearte.jfairy.producer.person.Person placeholder = fairy.person();
+        Faker faker = new Faker();
+
         float statsMod = rng.nextFloat(0.5f, 2);
 
-        return new Coach(placeholder.getLastName(), placeholder.getFirstName(), "N/A",statsMod);
+        return new Coach(faker.name().lastName(), faker.name().firstName(), faker.country().capital(),statsMod);
     }
 }

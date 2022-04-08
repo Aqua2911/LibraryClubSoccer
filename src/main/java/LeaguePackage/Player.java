@@ -1,10 +1,10 @@
 package LeaguePackage;//import Personne.java;
 
+import com.github.javafaker.Faker;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import io.codearte.jfairy.Fairy;
 
 class Player extends Person {
     /**
@@ -44,12 +44,12 @@ class Player extends Person {
 
     public static Player RandomGeneration(){
         Random rng = new Random();
-        Fairy fairy = Fairy.create();
-        io.codearte.jfairy.producer.person.Person placeholder = fairy.person();
+        Faker faker = new Faker();
+
         float height = rng.nextFloat(5, 7);
         float weight = rng.nextFloat(100, 200);
         float stats = rng.nextFloat(0, 10);
 
-        return new Player(placeholder.getLastName(), placeholder.getFirstName(), height, weight,placeholder.getAddress().getCity(), stats);
+        return new Player(faker.name().lastName(), faker.name().firstName(), height, weight, faker.address().city(), stats);
     }
 }

@@ -8,5 +8,5 @@ public interface ILeagueBuilder {
 
     League buildXClubsYPlayersZCoach(int nbClub, int nbPlayers, int nbCoach);
 
-    League buildXClubsRangeCoachRangePlayers(int nbClub, int minCoach, int maxCoach, int minPlayer, int maxPlayer);
+    League buildXClubsRangePlayersRangeCoach(int nbClub, int minPlayer, int maxPlayer, int minCoach, int maxCoach);
 }

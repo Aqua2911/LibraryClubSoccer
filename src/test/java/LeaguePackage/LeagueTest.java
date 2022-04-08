@@ -13,10 +13,10 @@ class LeagueTest {
     void getPlayersByClubName() {
         League league = new League();
         league.CreateClub("name", "history", "color", new Date(), "city", "address");
-        //league.CreateClub("name2", "history", "color", new Date(), "city", "address");
-        //league.CreateCoach("Tremblay", "Mario", "Montréal", 1.2f);
-        //.CreatePlayer("lastNameTest", "firstNameTest", 5.8f, 147, "city", 2);
-        //league.TransactPlayerClub("firstNameTest", "lastNameTest", "name");
+        league.CreateClub("name2", "history", "color", new Date(), "city", "address");
+        league.CreateCoach("Tremblay", "Mario", "Montréal", 1.2f);
+        league.CreatePlayer("lastNameTest", "firstNameTest", 5.8f, 147, "city", 2);
+        league.TransactPlayerClub("firstNameTest", "lastNameTest", "name");
 
 
         assertEquals(1, league.getPlayersByClubName("name").size());
