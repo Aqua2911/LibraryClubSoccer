@@ -1,7 +1,10 @@
 package LeaguePackage;
 
+import io.codearte.jfairy.Fairy;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 class Coach extends Person {
     /**
@@ -34,5 +37,14 @@ class Coach extends Person {
                 ", lastName='" + lastName + '\'' +
                 ", firstName='" + firstName + '\'' +
                 '}';
+    }
+
+    public static Coach RandomGeneration(){
+        Random rng = new Random();
+        Fairy fairy = Fairy.create();
+        io.codearte.jfairy.producer.person.Person placeholder = fairy.person();
+        float statsMod = rng.nextFloat(0.5f, 2);
+
+        return new Coach(placeholder.getLastName(), placeholder.getFirstName(), "N/A",statsMod);
     }
 }

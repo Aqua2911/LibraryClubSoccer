@@ -1,5 +1,7 @@
 package LeaguePackage;
 
+import io.codearte.jfairy.Fairy;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -74,5 +76,15 @@ class Club {
                 ", coaches=" + coaches +
                 ", palmares=" + palmares +
                 '}';
+    }
+
+    public static Club RandomGeneration(){
+        Fairy fairy = Fairy.create();
+        io.codearte.jfairy.producer.person.Person placeholder = fairy.person();
+        String city = placeholder.getAddress().getCity();
+        String name = city + "FC";
+        String address = placeholder.getAddress().getAddressLine1();
+
+        return new Club(name, "", "", new Date(), city, address);
     }
 }
