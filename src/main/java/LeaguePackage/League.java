@@ -62,7 +62,7 @@ public class League {
     }
 
     //retourne le club avec le plus de titres
-    public Club MostTitledClub(){
+    public String mostTitledClub(){
         Club mostTitledClub = clubs.get(0);
         int mostTitledClubSize = mostTitledClub.palmares.size();
         int size;
@@ -73,23 +73,7 @@ public class League {
                 mostTitledClubSize = size;
             }
         }
-        return mostTitledClub;
-    }
-
-    //Simule un match entre deux clubs
-    //IMPORTANT : aucune vérification que le club est non null. À MODIFIER
-    public Club Match(String clubNameHome, String clubNameVisitor){
-        Club home = getClubByName(clubNameHome);
-        Club visitor = getClubByName(clubNameVisitor);
-        Random rng = new Random();
-        float resultHome = rng.nextInt(5) * home.getStats() * 1.5f;
-        float resultVisitor = rng.nextInt(5) * visitor.getStats();
-        if(resultHome >= resultVisitor){
-            return home;
-        }
-        else{
-            return visitor;
-        }
+        return mostTitledClub.toString();
     }
 
     //Retourne le parcours d'un certain joueur
