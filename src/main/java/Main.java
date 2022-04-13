@@ -9,6 +9,6 @@ public class Main {
         LeagueBuilder leagueBuilder = new LeagueBuilder();
         League league = leagueBuilder.buildXClubsYPlayers(10, 20);
         System.out.println(Match.season(league));
-        //System.out.println(league);
+        System.out.println(league);
     }
 }

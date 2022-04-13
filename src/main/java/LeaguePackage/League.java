@@ -110,7 +110,7 @@ public class League {
 
     //Déplace un joueur entre deux clubs
     //Si le club est null, déplace vers la liste des joueurs indépendants
-    public void TransactPlayerClub(String playerFirstName, String playerLastName, String clubName){
+    public void transactPlayerClub(String playerFirstName, String playerLastName, String clubName){
         Player player = getPlayerByName(playerFirstName, playerLastName);
         Club club = getClubByName(clubName);
         if(player.independent){
@@ -136,40 +136,40 @@ public class League {
     }
 
     //Méthodes De Création et de Suppression d'objets.
-    public void CreateClub(String name, String history, String color, Date creationDate, String city, String address){
+    public void createClub(String name, String history, String color, Date creationDate, String city, String address){
         clubs.add(new Club(name, history, color, creationDate, city, address));
     }
 
-    public void CreateCoach(String lastName, String firstName, String gradePlace, float statsModifier){
+    public void createCoach(String lastName, String firstName, String gradePlace, float statsModifier){
         coaches.add(new Coach(lastName, firstName, gradePlace, statsModifier));
     }
 
-    public void CreatePlayer(String lastName, String firstName, float height, float weight, String birthCity, float stats){
+    public void createPlayer(String lastName, String firstName, float height, float weight, String birthCity, float stats){
         independentPlayers.add(new Player(lastName, firstName, height, weight, birthCity, stats));
     }
 
-    public void CreatePalmaresByClubName(String titre, Date dateObtention, String clubName){
+    public void createPalmaresByClubName(String titre, Date dateObtention, String clubName){
         getClubByName(clubName).palmares.add(new Palmares(titre, dateObtention));
     }
 
-    public void CreateCareersByPlayer(String firstname, String lastName,String clubName, Date passageDateStart, Date passageDateEnd){
+    public void createCareersByPlayer(String firstname, String lastName,String clubName, Date passageDateStart, Date passageDateEnd){
         getPlayerByName(firstname, lastName).careers.add(new Career(clubName, passageDateStart, passageDateEnd));
     }
 
-    public void CreateStadiumForClub(String clubName, String stadiumName, int capacity, String groundType){
+    public void createStadiumForClub(String clubName, String stadiumName, int capacity, String groundType){
         getClubByName(clubName).stadium = new Stadium(stadiumName, capacity, groundType);
     }
 
-    public void CreateStaffForClub(String clubName, String firstName, String lastName, float age, String role){
+    public void createStaffForClub(String clubName, String firstName, String lastName, float age, String role){
         getClubByName(clubName).staffs.add(new Staff(firstName, lastName, age, role));
     }
 
-    public void CreateTitleWonForCoach(String firstName, String lastName, String title, Date obtainmentDate){
+    public void createTitleWonForCoach(String firstName, String lastName, String title, Date obtainmentDate){
         getCoachByName(firstName, lastName).titlesWon.add(new TitleWon(title, obtainmentDate));
     }
 
     //Supprime un club, son staff et son palmares. Place les coaches en retraite (non supprimés) et les joueurs en indépendants
-    public void DeleteClubByName(String clubName){
+    public void deleteClubByName(String clubName){
         Club clubToDelete = getClubByName(clubName);
         clubToDelete.staffs.clear();
         clubToDelete.palmares.clear();
@@ -177,13 +177,13 @@ public class League {
             coachToFired.retired = true;
         }
         for(Player playerToFired: clubToDelete.players){
-            TransactPlayerClub(playerToFired.firstName, playerToFired.lastName, "");
+            transactPlayerClub(playerToFired.firstName, playerToFired.lastName, "");
         }
         clubs.remove(clubToDelete);
     }
 
     //Supprime un coach. Cherche sa position (dans un club ou retraité)
-    public void DeleteCoach(String firstName, String lastName){
+    public void deleteCoach(String firstName, String lastName){
         Coach coachToDelete = getCoachByName(firstName, lastName);
         for(Club club: clubs){
             club.coaches.removeIf(coach -> coach.equals(coachToDelete));
@@ -192,7 +192,7 @@ public class League {
     }
 
     //Supprime un Joueur. Cherche dans un club ou indépendant
-    public void DeletePlayer(String firstName, String lastName){
+    public void deletePlayer(String firstName, String lastName){
         Player playerToDelete = getPlayerByName(firstName, lastName);
         if(playerToDelete.independent){
             independentPlayers.remove(playerToDelete);
@@ -204,23 +204,23 @@ public class League {
         }
     }
 
-    public void DeleteClubPalmares(String clubName){
+    public void deleteClubPalmares(String clubName){
         getClubByName(clubName).palmares.clear();
     }
 
-    public void DeletePlayerCareers(String firstName, String Lastname){
+    public void deletePlayerCareers(String firstName, String Lastname){
         getPlayerByName(firstName, Lastname).careers.clear();
     }
 
-    public void DeleteClubStadium(String clubName){
+    public void deleteClubStadium(String clubName){
         getClubByName(clubName).stadium = null;
     }
 
-    public void DeleteClubStaff(String clubName){
+    public void deleteClubStaff(String clubName){
         getClubByName(clubName).staffs.clear();
     }
 
-    public void DeleteCoachTitleWon(String firstname, String lastName){
+    public void deleteCoachTitleWon(String firstname, String lastName){
         getCoachByName(firstname, lastName).titlesWon.clear();
     }
 
