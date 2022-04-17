@@ -46,7 +46,7 @@ public class LeagueBuilder implements ILeagueBuilder {
         for(int i = 0; i < nbClub; i++){
             Club newClub = Club.RandomGeneration();
 
-            nbPlayersRng = rng.nextInt(minPlayer, minPlayer);
+            nbPlayersRng = rng.nextInt(minPlayer, maxPlayer);
             for(int j = 0; j < nbPlayersRng; j++){
                 newClub.players.add(Player.RandomGeneration());
             }

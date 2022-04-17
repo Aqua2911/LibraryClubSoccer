@@ -11,15 +11,6 @@ class LeagueTest {
 
     @Test
     void getPlayersByClubName() {
-        League league = new League();
-        league.createClub("name", "history", "color", new Date(), "city", "address");
-        league.createClub("name2", "history", "color", new Date(), "city", "address");
-        league.createCoach("Tremblay", "Mario", "Montréal", 1.2f);
-        league.createPlayer("lastNameTest", "firstNameTest", 5.8f, 147, "city", 2);
-        league.transactPlayerClub("firstNameTest", "lastNameTest", "name");
-
-
-        assertEquals(1, league.getPlayersByClubName("name").size());
     }
 
     @Test
@@ -35,10 +26,14 @@ class LeagueTest {
     }
 
     @Test
-    void match() {
+    void getCoachByName() {
     }
 
     @Test
     void mostTitledCoach() {
+    }
+
+    @Test
+    void transactPlayerClub() {
     }
 }
