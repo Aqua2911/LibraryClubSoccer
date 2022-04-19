@@ -1,6 +1,14 @@
 package LeaguePackage;
 
 import java.util.Date;
+/**
+ * Career  is the class entity we'll be using to create player or coach Career
+ *  Please see the {@link java.lang.Object} class for true identity   baeldung.com/javadoc
+ *  user@baeldung:~$ mvn javadoc:javadoc
+ *  @DisplayName clubName, passageDateStart, passageDateEnd
+ *  @return clubName, passageDateStart, passageDateEnd
+ *  @author Alpha, Kokou and  Nicolas ,
+ */
 
 class Career {
     /**

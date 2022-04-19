@@ -6,11 +6,16 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * club is the class entity we'll be using to create a club
+ *  Please see the {@link java.lang.Object} class for true identity   baeldung.com/javadoc
+ *  user@baeldung:~$ mvn javadoc:javadoc
+ *  @DisplayName name
+ *  @return clubName
+ *  @author Alpha, Kokou and  Nicolas ,
+ */
+
 class Club {
-    /**
-     *
-     *
-     */
     //Attributs
     String name;
     String history;
@@ -42,6 +47,18 @@ class Club {
 
     //Simulation de "force" d'un club. Additionne les forces individuelles des Joueurs
     //et multiplie le tout par l'addition des multiplicateurs des coaches
+
+
+    /**
+     * getStats is the class entity we'll be using to get statists of any players and strengh of club
+     *  Please see the {@link java.lang.Object} class for true identity   baeldung.com/javadoc
+     *  user@baeldung:~$ mvn javadoc:javadoc
+     *  @DisplayName name
+     *  @return clubName
+     *  @author Alpha, Kokou and  Nicolas ,
+     */
+
+
     public float getStats(){
         float statsPlayers = 0;
         float statsModifier = 1;
@@ -77,6 +94,15 @@ class Club {
                 ", palmares=" + palmares +
                 '}';
     }
+
+    /**
+     * Club RandomGeneration is the class entity we'll be using to get random Generation of club
+     *  Please see the {@link java.lang.Object} class for true identity   baeldung.com/javadoc
+     *  user@baeldung:~$ mvn javadoc:javadoc
+     *  @DisplayName name
+     *  @return clubName
+     *  @author Alpha, Kokou and  Nicolas ,
+     */
 
     public static Club RandomGeneration(){
         Faker faker = new Faker();

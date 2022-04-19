@@ -3,9 +3,19 @@ package LeaguePackage;//import Personne.java;
 import com.github.javafaker.Faker;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
+
+/**
+ * player is the class entity we'll be using to create a palyer, herit from class person
+ *  Please see the {@link java.lang.Object} class for true identity   baeldung.com/javadoc
+ *  user@baeldung:~$ mvn javadoc:javadoc
+ *  @DisplayName name, height, weight
+ *  @return playerName, height, weight, stats
+ *  @author Alpha, Kokou and  Nicolas ,
+ */
 class Player extends Person {
     /**
      *
@@ -29,6 +39,7 @@ class Player extends Person {
         this.careers = new ArrayList<>();
     }
 
+
     @Override
     public String toString() {
         return "Player{" +
@@ -42,13 +53,23 @@ class Player extends Person {
                 '}';
     }
 
+
+    /**
+     * RandomGeneration is the class entity we'll be using to generate by random a player
+     *  Please see the {@link java.lang.Object} class for true identity   baeldung.com/javadoc
+     *  user@baeldung:~$ mvn javadoc:javadoc
+     *  @DisplayName name, height, weight, address
+     *  @return playerName, height, weight, stats
+     *  @author Alpha, Kokou and  Nicolas ,
+     */
+
     public static Player RandomGeneration(){
         Random rng = new Random();
         Faker faker = new Faker();
 
-        float height = rng.nextFloat(5, 7);
-        float weight = rng.nextFloat(100, 200);
-        float stats = rng.nextFloat(0, 10);
+        float height = rng.nextFloat( );
+        float weight = rng.nextFloat( );
+        float stats = rng.nextFloat();
 
         return new Player(faker.name().lastName(), faker.name().firstName(), height, weight, faker.address().city(), stats);
     }

@@ -2,6 +2,15 @@ package LeaguePackage;
 
 import java.util.Random;
 
+/**
+ *  LeagueBuilder is the class entity we'll be using to build league game by random
+ *  Please see the {@link java.lang.Object} class for true identity   baeldung.com/javadoc
+ *  user@baeldung:~$ mvn javadoc:javadoc
+ *  @DisplayName  nbClub, nbPlayers, nbCoach
+ *  @return league season , ClubName, nbClub, nbPlayers
+ *  @author Alpha, Kokou and  Nicolas ,
+ */
+
 public class LeagueBuilder implements ILeagueBuilder {
 
     @Override
@@ -46,12 +55,12 @@ public class LeagueBuilder implements ILeagueBuilder {
         for(int i = 0; i < nbClub; i++){
             Club newClub = Club.RandomGeneration();
 
-            nbPlayersRng = rng.nextInt(minPlayer, maxPlayer);
+            nbPlayersRng = rng.nextInt(maxPlayer);
             for(int j = 0; j < nbPlayersRng; j++){
                 newClub.players.add(Player.RandomGeneration());
             }
 
-            nbCoachRng = rng.nextInt(minCoach, maxCoach);
+            nbCoachRng = rng.nextInt(maxCoach);
             for(int k = 0; k < nbCoachRng; k++){
                 newClub.coaches.add(Coach.RandomGeneration());
             }

@@ -2,6 +2,16 @@ package LeaguePackage;
 
 import java.util.*;
 
+/**
+ * Match  is the class entity we'll be using to create game
+ *  Please see the {@link java.lang.Object} class for true identity   baeldung.com/javadoc
+ *  user@baeldung:~$ mvn javadoc:javadoc
+ *  @DisplayName  HomeClub_Name, VisitorClub_Name, results of the game
+ *  @return HomeClub_Name, VisitorClub_Name, resultHome_Club, resulVisitor_Club
+ *  @author Alpha, Kokou and  Nicolas ,
+ */
+
+
 public class Match {
 
     public static Club play(Club home, Club visitor){
@@ -15,6 +25,15 @@ public class Match {
             return visitor;
         }
     }
+
+    /**
+     * play is the class entity we'll be using to generate statistics game
+     *  Please see the {@link java.lang.Object} class for true identity   baeldung.com/javadoc
+     *  user@baeldung:~$ mvn javadoc:javadoc
+     *  @DisplayName  HomeClub_Name, VisitorClub_Name, results of the game
+     *  @return scoreboard
+     *  @author Alpha, Kokou and  Nicolas ,
+     */
 
     public static String play(League league, String clubNameHome, String clubNameVisitor){
         Club home = league.getClubByName(clubNameHome);

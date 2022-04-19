@@ -6,6 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Coach is the class entity we'll be using to create a Coach, herit from class person
+ *  Please see the {@link java.lang.Object} class for true identity   baeldung.com/javadoc
+ *  user@baeldung:~$ mvn javadoc:javadoc
+ *  @DisplayName lastName, firstName, titlesWon
+ *  @return lastName, firstName, titlesWon , retired or not , gradePlace
+ *  @author Alpha, Kokou and  Nicolas ,
+ */
+
+
 class Coach extends Person {
     /**
      *
@@ -39,11 +49,20 @@ class Coach extends Person {
                 '}';
     }
 
+
+    /**
+     * Coach RandomGeneration is the class entity we'll be using to generate Coach statistics
+     *  Please see the {@link java.lang.Object} class for true identity   baeldung.com/javadoc
+     *  user@baeldung:~$ mvn javadoc:javadoc
+     *  @DisplayName lastName, firstName
+     *  @return lastName, firstName, country , capital , statsMod
+     *  @author Alpha, Kokou and  Nicolas ,
+     */
     public static Coach RandomGeneration(){
         Random rng = new Random();
         Faker faker = new Faker();
 
-        float statsMod = rng.nextFloat(0.5f, 2);
+        float statsMod = rng.nextFloat();
 
         return new Coach(faker.name().lastName(), faker.name().firstName(), faker.country().capital(),statsMod);
     }
