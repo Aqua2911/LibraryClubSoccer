@@ -4,8 +4,8 @@ import java.util.*;
 
 public class League {
 
-    private final List<Club> clubs;
-    private final List<Coach> coaches;
+    public List<Club> clubs;
+    public List<Coach> coaches;
     private final List<Player> independentPlayers;
 
     //Constructor
@@ -19,6 +19,7 @@ public class League {
     public List<Club> getClubs() {
         return clubs;
     }
+
 
     //Tout les joueurs faisant partie d'un certain club
     //Enter "INDEPENDENT" for players not affiliated with a club
